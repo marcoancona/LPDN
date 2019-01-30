@@ -1,5 +1,5 @@
 ## Lightweight Probabilistic Deep Network
-This repository contains an unofficial implementation of [Lightweight Probabilistic Deep Networks](https://arxiv.org/abs/1805.11327) using Keras (and assuming Tensorflow backend). The library is still under development and not all Keras layers are currently supported.
+This repository contains an unofficial implementation of [Lightweight Probabilistic Deep Networks](https://arxiv.org/abs/1805.11327) using Keras (and assuming Tensorflow backend). The library is still under development and not all Keras layers are currently supported. Moreover, only ReLU and Linear are supported as layer activations.
 
 ### How to use
 A Keras probabilistic model can be built from scratch or converted from an existing model.
