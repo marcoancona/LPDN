@@ -41,5 +41,11 @@ lp_model.add(LPMaxPooling2D(pool_size=(2, 2)))
 lp_model.add(LPFlatten())
 lp_model.add(LPDense(num_classes))
 ```
+Notice that, in both cases, the probabilistic model is initialized with random weights. You can easily transfer the weights of the original model:
+```py
+model.save_weights('w.h5')
+lp_model.load_weights('w.h5')
+```
+
 If `model` takes an input of shape `[batch, n_features]`, `lp_model` requires an input of shape `[batch, n_features, 2]` where mean and variance of the input features are stacked along the last dimension. Similarly, the output will also have one additional dimension to account for mean and variance.
 
