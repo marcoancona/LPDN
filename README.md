@@ -1,4 +1,4 @@
-## Lightweight Probabilistic Deep Network
+## Lightweight Probabilistic Deep Networks
 This repository contains an unofficial implementation of [Lightweight Probabilistic Deep Networks](https://arxiv.org/abs/1805.11327) using Keras (and assuming Tensorflow backend). 
 
 Notice that this library is at en early stage of development and proper unity tests are not there yet. Moreover, only ReLU and Linear are supported as layer activations.
