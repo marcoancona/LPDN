@@ -19,7 +19,6 @@ class LPConv2D(Conv2D):
         return original_output_shape + (2,)
 
     def assert_input_compatibility(self, inputs):
-        print (inputs)
         return super(LPConv2D, self).assert_input_compatibility(inputs[..., 0])
 
     def _conv2d(self, input, kernel):

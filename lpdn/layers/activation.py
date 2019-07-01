@@ -12,7 +12,7 @@ def _filter_linear(m, v):
 
 
 def _filter_relu(m, v):
-    v = tf.maximum(v, 0.0000001)
+    v = tf.maximum(v, 0.0001)
     s = v**0.5
     m_out = m*normal.cdf(m/s) + s*normal.prob(m/s)
     v_out = (m**2 + v)*normal.cdf(m/s) + (m*s)*normal.prob(m/s) - m_out**2
@@ -35,12 +35,13 @@ def filter_activation(activation_name, m, v):
 
 class LPActivation(Activation):
     def __init__(self, activation, **kwargs):
-        if activation not in ACTIVATIONS:
-            raise Exception("Activation '%s' not supported" % activation)
+        self.activation_name = activation if isinstance(activation, str) else activation.__name__
+        if self.activation_name not in ACTIVATIONS:
+            raise Exception("Activation '%s' not supported" % self.activation_name)
         super(LPActivation, self).__init__(activation, **kwargs)
 
     def call(self, inputs):
         m = inputs[..., 0]
         v = inputs[..., 1]
-        m, v = filter_activation(self.activation, m, v)
+        m, v = filter_activation(self.activation_name, m, v)
         return tf.stack([m, v], -1)

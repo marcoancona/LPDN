@@ -13,7 +13,8 @@ def _ab_max_pooling(a, b):
     va = a[..., 1]
     mu_b = b[..., 0]
     vb = b[..., 1]
-    vavb = tf.maximum(((va + vb) ** 0.5), 0.00001)
+    vavb = tf.maximum(va + vb, 0.00001) ** 0.5
+
     muamub = mu_a - mu_b
     muamub_p = mu_a + mu_b
     alpha = muamub / vavb
