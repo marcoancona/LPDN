@@ -3,6 +3,13 @@ This repository contains an unofficial implementation of [Lightweight Probabilis
 
 Notice that this library is at en early stage of development and proper unity tests are not there yet. Moreover, only ReLU and Linear are supported as layer activations.
 
+### Install
+In your Python 3 (virtual) environment:
+```
+pip install git+https://github.com/marcoancona/LPDN.git
+```
+Notice that this will not install any additional dependencies but LPDN assumes `numpy`, `tensorflow(-gpu)` and `keras` are available.
+
 ### How to use
 A Keras probabilistic model can be built from scratch or converted from an existing model.
 
